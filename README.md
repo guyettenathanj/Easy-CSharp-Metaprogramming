@@ -7,7 +7,7 @@ The current options for metaprogramming in C# are pretty lacking. It's either mo
 I hope I can offer a more user-friendly experience by using the builder pattern to construct C# code, which can then be outputted to a string.
 
 
-# How to use it
+# Quick Example
 ```csharp
 using Easy_CSharp_Metaprogramming;
 using static System.Console;
