@@ -123,3 +123,13 @@ public class Horse
 
 }
 ```
+
+# Real Usecases Ideas for the Future
+1. JSON to C# Class
+2. Injecting Logging / Exception Handeling
+
+
+
+
+
+
