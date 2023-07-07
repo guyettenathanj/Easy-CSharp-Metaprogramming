@@ -128,7 +128,9 @@ public class Horse
 1. JSON to C# Class
 2. Injecting Logging / Exception Handling
 
-
+# Future Functionality
+## Source Code To Builder
+Take existing code, get the AST, and then generate the code to build it, in the builder pattern provided here.
 
 
 
