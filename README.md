@@ -8,4 +8,29 @@ I hope I can offer a more user-friendly experience by using the builder pattern 
 
 
 # How to use it
-https://github.com/guyettenathanj/Easy-CSharp-Metaprogramming/blob/77e5a618f284f5f3b4cafe5f5a3361c57dd04dae/Console-Client/Program.cs#L1C1-L26C2
+```csharp
+using Easy_CSharp_Metaprogramming;
+using static System.Console;
+
+var animalClasses = new List<string>(){ "Cat", "Dog", "Horse"};
+
+var indent = 2;
+
+ExceptionHandlerBuilder exceptionHandler = new ExceptionHandlerBuilder(indent)
+    .AddCatch("Exception e", "Console.WriteLine(e.Message);")
+    .AddFinally("CleanUp();");
+
+foreach (string className in animalClasses)
+{
+    ClassBuilder builder = new ClassBuilder(className, indent, AccessModifier.Public);
+    string classCode = builder
+        .AddProperty("string", "FirstName", AccessModifier.Public)
+        .AddProperty("string", "LastName", AccessModifier.Public)
+        .AddProperty("DateTime", "DateOfBirth", AccessModifier.Private)
+        .AddMethod(ReturnType.Int, "ReturnNumberofEars", AccessModifier.Public, "return 2;", exceptionHandler)
+        .Build();
+
+    WriteLine(classCode);
+    WriteLine();
+}
+```
