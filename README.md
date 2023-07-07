@@ -34,3 +34,92 @@ foreach (string className in animalClasses)
     WriteLine();
 }
 ```
+
+# Output
+```csharp
+public class Cat
+{
+    public string FirstName { get; set; }
+
+    public string LastName { get; set; }
+
+    private DateTime DateOfBirth { get; set; }
+
+    public int ReturnNumberofEars()
+    {
+        try
+        {
+            return 2;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        finally
+        {
+            CleanUp();
+        }
+
+
+    }
+
+}
+
+
+public class Dog
+{
+    public string FirstName { get; set; }
+
+    public string LastName { get; set; }
+
+    private DateTime DateOfBirth { get; set; }
+
+    public int ReturnNumberofEars()
+    {
+        try
+        {
+            return 2;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        finally
+        {
+            CleanUp();
+        }
+
+
+    }
+
+}
+
+
+public class Horse
+{
+    public string FirstName { get; set; }
+
+    public string LastName { get; set; }
+
+    private DateTime DateOfBirth { get; set; }
+
+    public int ReturnNumberofEars()
+    {
+        try
+        {
+            return 2;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        finally
+        {
+            CleanUp();
+        }
+
+
+    }
+
+}
+```
