@@ -128,6 +128,7 @@ public class Horse
 1. JSON to C# Class
 2. Injecting Logging / Exception Handling
 3. Automatically register implimenters with a given IFactory class
+4. Create builder classes for any given design pattern.
 
 # Future Functionality
 ## Source Code To Builder
