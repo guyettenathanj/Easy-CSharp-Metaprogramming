@@ -127,6 +127,7 @@ public class Horse
 # Real Use-case Ideas for the Future
 1. JSON to C# Class
 2. Injecting Logging / Exception Handling
+3. Automatically register implimenters with a given IFactory class
 
 # Future Functionality
 ## Source Code To Builder
