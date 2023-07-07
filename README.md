@@ -8,5 +8,4 @@ I hope I can offer a more user-friendly experience by using the builder pattern 
 
 
 # How to use it
-
-https://github.com/guyettenathanj/Easy-CSharp-Metaprogramming/blob/c6d3733bb483ad20f000b0b1179a1c4de3709b50/Console-Client/Program.cs#L2C1-L3C1
+https://github.com/guyettenathanj/Easy-CSharp-Metaprogramming/blob/77e5a618f284f5f3b4cafe5f5a3361c57dd04dae/Console-Client/Program.cs#L1C1-L26C2
