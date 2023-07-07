@@ -2,7 +2,6 @@
 using static System.Console;
 
 var animalClasses = new List<string>(){ "Cat", "Dog", "Horse"};
-var plantClasses = new List<string>(){ "Flower", "Tree", "Weed"};
 
 var indent = 2;
 
@@ -11,14 +10,14 @@ ExceptionHandlerBuilder exceptionHandler = new ExceptionHandlerBuilder(indent)
     .AddFinally("CleanUp();");
 
 
-foreach (string className in plantClasses)
+foreach (string className in animalClasses)
 {
-    ClassBuilder builder = new ClassBuilder("Person", indent, AccessModifier.Public);
+    ClassBuilder builder = new ClassBuilder(className, indent, AccessModifier.Public);
     string classCode = builder
         .AddProperty("string", "FirstName", AccessModifier.Public)
         .AddProperty("string", "LastName", AccessModifier.Public)
         .AddProperty("DateTime", "DateOfBirth", AccessModifier.Private)
-        .AddMethod(ReturnType.Int, "ReturnTwo", AccessModifier.Public, "return 2;", exceptionHandler)
+        .AddMethod(ReturnType.Int, "ReturnNumberofEars", AccessModifier.Public, "return 2;", exceptionHandler)
         .Build();
 
     WriteLine(classCode);
