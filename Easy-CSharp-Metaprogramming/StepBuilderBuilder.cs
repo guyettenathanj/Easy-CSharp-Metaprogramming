@@ -25,9 +25,9 @@ namespace Easy_CSharp_Metaprogramming
             return this;
         }
 
-        public StepBuilderBuilder Build(string name) 
+        public string Build() 
         {
-            return this; 
+            return ""; 
         }
     }
 }

@@ -8,7 +8,7 @@ var consoleUsing = "using static System.Console";
 var appleBuilderCode = new StepBuilderBuilder()
     .AddOptionalStep("SetAppleColor")
     .AddMandatoryStep("SetAppleWeight")
-    .AddMandatoryStep("SetAppleHeight");
+    .AddMandatoryStep("SetAppleHeight").Build();
 
 var code = new CSharpBuilder()
     .AddClass(
