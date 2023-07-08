@@ -134,6 +134,11 @@ public class Horse
 ## Source Code To Builder
 Take existing code, get the AST, and then generate the code to build it, in the builder pattern provided here.
 
+This would enable a user to directly modify generated source files, have an analyzer recognize the modification,
+and then suggest a builder pattern to construct it programmatically so the changes don't get lost. 
+
+This bidirectional conversation between the client and the generator is a really exciting possibility 
+
 
 
 
