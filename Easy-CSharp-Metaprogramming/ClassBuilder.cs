@@ -45,6 +45,11 @@ public class ClassBuilder
         return this;
     }
 
+    public ClassBuilder AddUsing(string usingString)
+    {
+        return this;
+    }
+
     public ClassBuilder AddMethod(string returnType, string methodName, string accessModifier, string methodBody, 
         ExceptionHandlerBuilder exceptionHandlerBuilder)
     {
@@ -74,5 +79,10 @@ public class ClassBuilder
     private string GenerateIndent(int spaces)
     {
         return new string(' ', spaces);
+    }
+
+    public ClassBuilder AddBaseClass(ClassBuilder baseClass)
+    {
+        return this;
     }
 }
