@@ -21,7 +21,6 @@ foreach (string className in animalClasses)
         .Build();
 
     WriteLine(classCode);
-    ;
     WriteLine();
 }
 
