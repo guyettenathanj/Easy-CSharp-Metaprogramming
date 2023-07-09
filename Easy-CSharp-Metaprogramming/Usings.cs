@@ -1,0 +1,1 @@
+﻿global using Easy_CSharp_Metaprogramming.ExtensionMethods;

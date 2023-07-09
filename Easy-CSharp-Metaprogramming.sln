@@ -10,6 +10,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console-Client", "Console-C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy-CSharp-Metaprogramming", "Easy-CSharp-Metaprogramming\Easy-CSharp-Metaprogramming.csproj", "{356BEAAC-8C78-41CE-B9CE-3BB511D68F2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy-CSharp-Metaprogramming-Tests", "Easy-CSharp-Metaprogramming-Tests\Easy-CSharp-Metaprogramming-Tests.csproj", "{277C8886-3B67-483B-BF72-DE62D1240873}"
+	ProjectSection(ProjectDependencies) = postProject
+		{356BEAAC-8C78-41CE-B9CE-3BB511D68F2D} = {356BEAAC-8C78-41CE-B9CE-3BB511D68F2D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{356BEAAC-8C78-41CE-B9CE-3BB511D68F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{356BEAAC-8C78-41CE-B9CE-3BB511D68F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{356BEAAC-8C78-41CE-B9CE-3BB511D68F2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{277C8886-3B67-483B-BF72-DE62D1240873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{277C8886-3B67-483B-BF72-DE62D1240873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{277C8886-3B67-483B-BF72-DE62D1240873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{277C8886-3B67-483B-BF72-DE62D1240873}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,11 @@
-﻿namespace Easy_CSharp_Metaprogramming
+﻿using System.Text;
+
+namespace Easy_CSharp_Metaprogramming
 {
-    public class CSharpClass
+    public class CSharpClass 
     {
+        public CSharpClass()
+        {
+        }
     }
 }

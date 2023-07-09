@@ -2,51 +2,41 @@
 
 namespace Easy_CSharp_Metaprogramming
 {
-    public class ExceptionHandlerBuilder
+    public class ExceptionHandlerBuilder : CSharpCode
     {
-        private string _indent;
-        private StringBuilder _exceptionHandlerCode;
 
-        public ExceptionHandlerBuilder(int indentSpaces)
+        public ExceptionHandlerBuilder(string indentSpaces) :
+            base(indentSpaces)
         {
-            _indent = GenerateIndent(indentSpaces);
-            _exceptionHandlerCode = new StringBuilder();
         }
 
         public ExceptionHandlerBuilder AddCatch(string exceptionType, string catchBody)
         {
-            _exceptionHandlerCode.AppendLine($"{_indent}catch({exceptionType})");
-            _exceptionHandlerCode.AppendLine($"{_indent}" + "{");
-            _exceptionHandlerCode.AppendLine($"{_indent}{_indent}{catchBody}");
-            _exceptionHandlerCode.AppendLine($"{_indent}" + "}");
+            Code.AppendLine($"{Indent}catch({exceptionType})");
+            Code.AppendLine($"{Indent}" + "{");
+            Code.AppendLine($"{Indent}{Indent}{catchBody}");
+            Code.AppendLine($"{Indent}" + "}");
             return this;
         }
 
         public ExceptionHandlerBuilder AddFinally(string finallyBody)
         {
-            _exceptionHandlerCode.AppendLine($"{_indent}finally");
-            _exceptionHandlerCode.AppendLine($"{_indent}" + "{");
-            _exceptionHandlerCode.AppendLine($"{_indent}{_indent}{finallyBody}");
-            _exceptionHandlerCode.AppendLine($"{_indent}" + "}");
+            Code.AppendLine($"{Indent}finally");
+            Code.AppendLine($"{Indent}" + "{");
+            Code.AppendLine($"{Indent}{Indent}{finallyBody}");
+            Code.AppendLine($"{Indent}" + "}");
             return this;
         }
 
         public string Build(string methodBody)
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"{_indent}try");
-            sb.AppendLine($"{_indent}" + "{");
-            sb.AppendLine($"{_indent}{_indent}{methodBody}");
-            sb.AppendLine($"{_indent}" + "}");
-            sb.AppendLine(_exceptionHandlerCode.ToString());
+            Code.AppendLine($"{Indent}try");
+            Code.AppendLine($"{Indent}" + "{");
+            Code.AppendLine($"{Indent}{Indent}{methodBody}");
+            Code.AppendLine($"{Indent}" + "}");
+            sb.AppendLine(Code.ToString());
             return sb.ToString();
         }
-
-        private string GenerateIndent(int spaces)
-        {
-            return new string(' ', spaces);
-        }
     }
-
-
 }
