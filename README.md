@@ -35,90 +35,28 @@ animalsCodeStrings.ForEach(c => WriteLine(c));
 
 # Output
 ```csharp
-public class Cat
-{
-    public string FirstName { get; set; }
-
-    public string LastName { get; set; }
-
-    private DateTime DateOfBirth { get; set; }
-
-    public int ReturnNumberofEars()
-    {
-        try
-        {
-            return 2;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        finally
-        {
-            CleanUp();
-        }
-
-
-    }
-
-}
-
-
-public class Dog
-{
-    public string FirstName { get; set; }
-
-    public string LastName { get; set; }
-
-    private DateTime DateOfBirth { get; set; }
-
-    public int ReturnNumberofEars()
-    {
-        try
-        {
-            return 2;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        finally
-        {
-            CleanUp();
-        }
-
-
-    }
-
-}
-
+using static System.Console;
 
 public class Horse
 {
-    public string FirstName { get; set; }
+  public string Name { get; set; }
+  public string Age { get; set; }
+}
 
-    public string LastName { get; set; }
+using static System.Console;
 
-    private DateTime DateOfBirth { get; set; }
+public class Dog
+{
+  public string Name { get; set; }
+  public string Age { get; set; }
+}
 
-    public int ReturnNumberofEars()
-    {
-        try
-        {
-            return 2;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        finally
-        {
-            CleanUp();
-        }
+using static System.Console;
 
-
-    }
-
+public class Cat
+{
+  public string Name { get; set; }
+  public string Age { get; set; }
 }
 ```
 
