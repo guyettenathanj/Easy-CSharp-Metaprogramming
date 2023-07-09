@@ -9,16 +9,39 @@ I hope I can offer a more user-friendly experience by using the builder pattern 
 
 # Quick Example
 ```csharp
-using Easy_CSharp_Metaprogramming;
+﻿using Easy_CSharp_Metaprogramming;
 using static System.Console;
 
-var animalClasses = new List<string>(){ "Cat", "Dog", "Horse"};
 
 var indent = 2;
+var consoleUsing = "using static System.Console";
+
+var appleBuilderCode = new StepBuilderBuilder()
+    .AddOptionalStep("SetAppleColor")
+    .AddMandatoryStep("SetAppleWeight")
+    .AddMandatoryStep("SetAppleHeight").Build();
+
+var code = new CSharpBuilder()
+    .AddClass(
+        new ClassBuilder(className: "Apple", indent)
+            .AddUsing(consoleUsing)
+            .AddProperty("bool", "Rotten", AccessModifier.Public)
+            .AddProperty("int", "Price", AccessModifier.Public)
+        )
+    .AddClass(
+        new ClassBuilder(className: "Potato", indent)
+            .AddUsing(consoleUsing)
+            .AddProperty("bool", "Rotten", AccessModifier.Public)
+            .AddProperty("int", "Price", AccessModifier.Public)
+        );
+var codeAsString = code.Build();
+
+var animalClasses = new List<string>(){ "Cat", "Dog", "Horse"};
 
 ExceptionHandlerBuilder exceptionHandler = new ExceptionHandlerBuilder(indent)
     .AddCatch("Exception e", "Console.WriteLine(e.Message);")
     .AddFinally("CleanUp();");
+
 
 foreach (string className in animalClasses)
 {
@@ -29,7 +52,6 @@ foreach (string className in animalClasses)
         .AddProperty("DateTime", "DateOfBirth", AccessModifier.Private)
         .AddMethod(ReturnType.Int, "ReturnNumberofEars", AccessModifier.Public, "return 2;", exceptionHandler)
         .Build();
-
     WriteLine(classCode);
     WriteLine();
 }
