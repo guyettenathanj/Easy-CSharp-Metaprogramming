@@ -64,7 +64,7 @@ public class Cat
 1. JSON to C# Class
 2. Injecting Logging / Exception Handling
 3. Automatically register implimenters with a given IFactory class
-4. [Create builder classes for any given design pattern.](https://github.com/guyettenathanj/Design-Patterns/blob/main/README.md)
+4. [Create builder classes for any given design pattern.]([https://github.com/guyettenathanj/Design-Patterns/blob/main/README.md](https://github.com/guyettenathanj/Design-Patterns))
 
 # Future Functionality
 ## Source Code To Builder
