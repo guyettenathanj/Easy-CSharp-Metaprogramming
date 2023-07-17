@@ -3,6 +3,7 @@
 public class ClassBuilder : CSharpCode
 {
     private List<CSharpProperty> Properties { get; }
+    private List<CSharpMethod> Methods { get; }
     private List<string> Usings { get; }
     public string ClassName { get; }
     public AccessModifier AccessModifier { get; }
@@ -31,23 +32,16 @@ public class ClassBuilder : CSharpCode
         return this;
     }
 
-    public ClassBuilder AddMethod(string returnType, string methodName, string accessModifier, string methodBody, 
-        ExceptionHandlerBuilder exceptionHandlerBuilder)
+    public ClassBuilder AddMethod(string returnType, string methodName, 
+        string accessModifier, string methodBody)
     {
-        Code.AppendLine($"{Indent}{accessModifier} {returnType} {methodName}()");
-        Code.AppendLine($"{Indent}" + "{");
+        // TODO: Finish this
+        return this;
+    }
 
-        if (exceptionHandlerBuilder != null)
-        {
-            Code.AppendLine(exceptionHandlerBuilder.Build(methodBody));
-        }
-        else if (!string.IsNullOrWhiteSpace(methodBody))
-        {
-            Code.AppendLine($"{Indent}{Indent}{methodBody}");
-        }
-
-        Code.AppendLine($"{Indent}" + "}");
-        Code.AppendLine();
+    public ClassBuilder AddMethod(string returnType, string methodName, 
+        string accessModifier, List<string> methodBodyLines)
+    {
         return this;
     }
 
@@ -63,7 +57,8 @@ public class ClassBuilder : CSharpCode
         Code.AppendLine($"{accessModifierString} class {ClassName}");
         Code.AppendLine("{");
         Code.AppendLines(propertiesAsCodeString);
-        Code.AppendLine("}");
+        //Code.AppendLine("}");
+        Code.Append("}");
         return Code.ToString(); 
     }
 }
