@@ -2,7 +2,7 @@
 
 This is a bit of a hobby project for now, not currently intended for production.
 
-The current options for metaprogramming in C# are pretty lacking. It's either mostly just string manipulation or having to work with obtuse top down ASTs / Rosyln's SyntaxFactory type, which is all top down.
+The current options for metaprogramming in C# are pretty lacking. It's either mostly just string manipulation or having to work with obtuse top down ASTs / Rosyln's SyntaxFactory type, which is all top down and too verbose.
 
 I hope I can offer a more user-friendly experience by using the builder pattern to construct C# code, which can then be outputted to a string.
 This offers a more intuitive bottom up approach to building up the code.
@@ -10,140 +10,53 @@ This offers a more intuitive bottom up approach to building up the code.
 
 # Quick Example
 ```csharp
-﻿using Easy_CSharp_Metaprogramming;
 using static System.Console;
 
 
-var indent = 2;
-var consoleUsing = "using static System.Console";
+var indent = "  ";
+var staticConsoleUsing = "using static System.Console;";
+List<string> animals = new List<string>() { "Horse", "Dog", "Cat" };
+List<string> animalsCodeStrings = new List<string>(); 
 
-var appleBuilderCode = new StepBuilderBuilder()
-    .AddOptionalStep("SetAppleColor")
-    .AddMandatoryStep("SetAppleWeight")
-    .AddMandatoryStep("SetAppleHeight").Build();
-
-var code = new CSharpBuilder()
-    .AddClass(
-        new ClassBuilder(className: "Apple", indent)
-            .AddUsing(consoleUsing)
-            .AddProperty("bool", "Rotten", AccessModifier.Public)
-            .AddProperty("int", "Price", AccessModifier.Public)
-        )
-    .AddClass(
-        new ClassBuilder(className: "Potato", indent)
-            .AddUsing(consoleUsing)
-            .AddProperty("bool", "Rotten", AccessModifier.Public)
-            .AddProperty("int", "Price", AccessModifier.Public)
-        );
-var codeAsString = code.Build();
-
-var animalClasses = new List<string>(){ "Cat", "Dog", "Horse"};
-
-ExceptionHandlerBuilder exceptionHandler = new ExceptionHandlerBuilder(indent)
-    .AddCatch("Exception e", "Console.WriteLine(e.Message);")
-    .AddFinally("CleanUp();");
-
-
-foreach (string className in animalClasses)
+// Build up the code strings...
+foreach (var animal in animals)
 {
-    ClassBuilder builder = new ClassBuilder(className, indent, AccessModifier.Public);
-    string classCode = builder
-        .AddProperty("string", "FirstName", AccessModifier.Public)
-        .AddProperty("string", "LastName", AccessModifier.Public)
-        .AddProperty("DateTime", "DateOfBirth", AccessModifier.Private)
-        .AddMethod(ReturnType.Int, "ReturnNumberofEars", AccessModifier.Public, "return 2;", exceptionHandler)
-        .Build();
-    WriteLine(classCode);
-    WriteLine();
+    var animalCode = new ClassBuilder(className: animal, indentSpaces: indent)
+    .AddProperty(type: "string", name: "Name")
+    .AddProperty(type: "string", name: "Age")
+    .AddUsing(staticConsoleUsing)
+    .ReturnCodeString();
+    animalsCodeStrings.Add(animalCode);
 }
+
+// Print out the code strings
+animalsCodeStrings.ForEach(c => WriteLine(c));
 ```
 
 # Output
 ```csharp
-public class Cat
-{
-    public string FirstName { get; set; }
-
-    public string LastName { get; set; }
-
-    private DateTime DateOfBirth { get; set; }
-
-    public int ReturnNumberofEars()
-    {
-        try
-        {
-            return 2;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        finally
-        {
-            CleanUp();
-        }
-
-
-    }
-
-}
-
-
-public class Dog
-{
-    public string FirstName { get; set; }
-
-    public string LastName { get; set; }
-
-    private DateTime DateOfBirth { get; set; }
-
-    public int ReturnNumberofEars()
-    {
-        try
-        {
-            return 2;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        finally
-        {
-            CleanUp();
-        }
-
-
-    }
-
-}
-
+using static System.Console;
 
 public class Horse
 {
-    public string FirstName { get; set; }
+  public string Name { get; set; }
+  public string Age { get; set; }
+}
 
-    public string LastName { get; set; }
+using static System.Console;
 
-    private DateTime DateOfBirth { get; set; }
+public class Dog
+{
+  public string Name { get; set; }
+  public string Age { get; set; }
+}
 
-    public int ReturnNumberofEars()
-    {
-        try
-        {
-            return 2;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        finally
-        {
-            CleanUp();
-        }
+using static System.Console;
 
-
-    }
-
+public class Cat
+{
+  public string Name { get; set; }
+  public string Age { get; set; }
 }
 ```
 
@@ -151,7 +64,7 @@ public class Horse
 1. JSON to C# Class
 2. Injecting Logging / Exception Handling
 3. Automatically register implimenters with a given IFactory class
-4. Create builder classes for any given design pattern.
+4. [Create builder classes for any given design pattern.](https://github.com/guyettenathanj/Design-Patterns)
 
 # Future Functionality
 ## Source Code To Builder
