@@ -12,11 +12,10 @@ This offers a more intuitive bottom up approach to building up the code.
 ```csharp
 using static System.Console;
 
-
 var indent = "  ";
 var staticConsoleUsing = "using static System.Console;";
 List<string> animals = new List<string>() { "Horse", "Dog", "Cat" };
-List<string> animalsCodeStrings = new List<string>(); 
+List<string> animalsCodeStrings = new List<string>();
 
 // Build up the code strings...
 foreach (var animal in animals)
@@ -26,11 +25,13 @@ foreach (var animal in animals)
     .AddProperty(type: "string", name: "Age")
     .AddUsing(staticConsoleUsing)
     .ReturnCodeString();
+
     animalsCodeStrings.Add(animalCode);
 }
 
 // Print out the code strings
-animalsCodeStrings.ForEach(c => WriteLine(c));
+animalsCodeStrings.ForEach(c =>
+{ WriteLine(c); WriteLine(); }   ); 
 ```
 
 # Output
