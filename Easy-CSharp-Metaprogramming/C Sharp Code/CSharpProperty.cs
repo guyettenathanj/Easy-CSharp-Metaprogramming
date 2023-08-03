@@ -1,4 +1,7 @@
-﻿public class CSharpProperty : CSharpCode
+﻿
+namespace Easy_CSharp_Metaprogramming.C_Sharp_Builders;
+
+public class CSharpProperty : CSharpCode
 {
     #region Properties
     public string Type { get; }

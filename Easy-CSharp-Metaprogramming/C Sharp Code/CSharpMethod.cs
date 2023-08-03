@@ -1,4 +1,7 @@
-﻿public class CSharpMethod : CSharpCode
+﻿
+namespace Easy_CSharp_Metaprogramming.C_Sharp_Builders;
+
+public class CSharpMethod : CSharpCode
 {
     private List<CSharpParameter> Parameters { get; set; }
     public string Name { get; }

@@ -1,4 +1,7 @@
-﻿public static class ReturnType
+﻿
+namespace Easy_CSharp_Metaprogramming.C_Sharp_Builders;
+
+public static class ReturnType
 {
     public const string Void = "void";
     public const string Int = "int";
