@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using Easy_CSharp_Metaprogramming.C_Sharp_Builders;
+using static System.Console;
 
 var indent = "  ";
 var staticConsoleUsing = "using static System.Console;";
@@ -19,4 +20,4 @@ foreach (var animal in animals)
 
 // Print out the code strings
 animalsCodeStrings.ForEach(c =>
-{ WriteLine(c); WriteLine(); }   ); 
+{ WriteLine(c); WriteLine(); });

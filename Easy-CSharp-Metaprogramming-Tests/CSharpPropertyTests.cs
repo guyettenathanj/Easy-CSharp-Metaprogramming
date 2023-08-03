@@ -1,5 +1,3 @@
-using Easy_CSharp_Metaprogramming;
-
 namespace Easy_CSharp_Metaprogramming_Tests
 {
     public class CSharpPropertyTests

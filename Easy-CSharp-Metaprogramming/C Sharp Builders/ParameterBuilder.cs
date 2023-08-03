@@ -1,4 +1,4 @@
-﻿namespace Easy_CSharp_Metaprogramming;
+﻿namespace Easy_CSharp_Metaprogramming.C_Sharp_Builders;
 
 public class ParameterBuilder
 {
@@ -10,11 +10,11 @@ public class ParameterBuilder
         Ref
     }
 
-    public ParameterBuilder(string name, string type, 
+    public ParameterBuilder(string name, string type,
         ParameterType pt = ParameterType.Standard,
         bool isOptional = false)
     {
-            
+
     }
 
 }

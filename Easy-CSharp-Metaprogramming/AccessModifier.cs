@@ -1,9 +1,9 @@
 ﻿public enum AccessModifier
 {
-     Public ,
-     Protected, 
-     Internal, 
-     Private, 
-     ProtectedInternal, 
-     PrivateProtected 
+    Public,
+    Protected,
+    Internal,
+    Private,
+    ProtectedInternal,
+    PrivateProtected
 }

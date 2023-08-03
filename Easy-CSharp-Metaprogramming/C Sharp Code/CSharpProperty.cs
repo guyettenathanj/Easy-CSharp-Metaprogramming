@@ -1,6 +1,4 @@
-﻿using Easy_CSharp_Metaprogramming;
-
-public class CSharpProperty : CSharpCode
+﻿public class CSharpProperty : CSharpCode
 {
     #region Properties
     public string Type { get; }
