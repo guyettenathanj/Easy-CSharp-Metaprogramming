@@ -2,18 +2,22 @@
 
 public class ClassBuilder : CSharpCode
 {
+    #region Properties
     private List<CSharpProperty> Properties { get; }
     private List<CSharpMethod> Methods { get; }
     private List<string> Usings { get; }
     public string ClassName { get; }
     public AccessModifier AccessModifier { get; }
 
+    #endregion
+
+    #region Constructors
     public ClassBuilder(string className, string indentSpaces,
         AccessModifier accessModifier = AccessModifier.Public)
         : base(indentSpaces)
     {
         Properties = new List<CSharpProperty>();
-        Usings = new List<string>();    
+        Usings = new List<string>();
         ClassName = className;
         AccessModifier = accessModifier;
     }
@@ -32,22 +36,24 @@ public class ClassBuilder : CSharpCode
         return this;
     }
 
-    public ClassBuilder AddMethod(string returnType, string methodName, 
+    public ClassBuilder AddMethod(string returnType, string methodName,
         string accessModifier, string methodBody)
     {
         // TODO: Finish this
         return this;
     }
 
-    public ClassBuilder AddMethod(string returnType, string methodName, 
+    public ClassBuilder AddMethod(string returnType, string methodName,
         string accessModifier, List<string> methodBodyLines)
     {
         return this;
     }
+    #endregion
 
+    #region Methods
     public override string ReturnCodeString()
     {
-        var propertiesAsCodeString = 
+        var propertiesAsCodeString =
             Properties.Select(x => x.ReturnCodeString()).ToList();
 
 
@@ -59,6 +65,8 @@ public class ClassBuilder : CSharpCode
         Code.AppendLines(propertiesAsCodeString);
         //Code.AppendLine("}");
         Code.Append("}");
-        return Code.ToString(); 
+        return Code.ToString();
     }
+
+    #endregion
 }

@@ -4,12 +4,14 @@ namespace Easy_CSharp_Metaprogramming
 {
     public class ExceptionHandlerBuilder : CSharpCode
     {
-
+        #region Consturctors
         public ExceptionHandlerBuilder(string indentSpaces) :
             base(indentSpaces)
         {
         }
+        #endregion
 
+        #region Methods
         public ExceptionHandlerBuilder AddCatch(string exceptionType, string catchBody)
         {
             Code.AppendLine($"{Indent}catch({exceptionType})");
@@ -38,5 +40,7 @@ namespace Easy_CSharp_Metaprogramming
             sb.AppendLine(Code.ToString());
             return sb.ToString();
         }
+
+        #endregion
     }
 }

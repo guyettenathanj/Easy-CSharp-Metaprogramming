@@ -8,20 +8,27 @@ namespace Easy_CSharp_Metaprogramming
     /// </summary>
     public class CSharpBuilder
     {
+        #region Properties
         public List<CSharpClass> Classes { get; set; }
+        #endregion
 
+        #region Feilds
         private StringBuilder _code;
         private string _currentIndent;
+        #endregion
 
-        public string Build()
-        {
-            return _code.ToString();
-        }
-
+        #region Constructors
         public CSharpBuilder AddClass(ClassBuilder cb)
         {
             return this;
         }
+        #endregion
 
+        #region Methods
+        public string Build()
+        {
+            return _code.ToString();
+        }
+        #endregion
     }
 }
